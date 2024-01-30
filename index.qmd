@@ -153,20 +153,9 @@ gitGraph
 
 ## Why Git? Why GitHub?
 
-:::: {.columns}
-::: {.column width="100%"}
-![](img/GitGitHub.png)
-:::
-
-::: {.column width="50%"}
-- **version control system**
-- manages the evolution of a set of files – called a **repository**.
-:::
-
-::: {.column width="50%"}
-GitHub provides a home for your Git-based projects on the internet.
-:::
-::::
+- Git manages the evolution of a set of files (repository) **on your computer**.
+- GitHub provides a home for your Git-based projects on the internet enabling collaboration
+  and distribution of your work.
 
 # Installation & Setup
 
@@ -217,7 +206,7 @@ git config --global --list
 - **Repository**: Set of files in a folder that are tracked
 - **Fork**: A personal branch off a repository
 - **Pull Request**: A request to include someones elses changes into your repository
-- **Issue**: Get and apply latest changed from remote server
+- **Issue**: A bug, an idea, a task, ...
 
 :::
 
@@ -235,3 +224,25 @@ You probably don't or rarely need: `revert`, `fetch`, `merge`, `reset`, `rebase`
 3. Stage changes (`git add`) and commit (`git commit`)
 4. Push your local changes to remote (`git push`)
 5. Goto 1.
+
+## Git Exercise {.smaller}
+
+
+1. Initialize a folder as a repository (`git init`)
+2. Add a file, edit and save.
+3. Stage the file for a commit (`git add`)
+4. Make a commit (`git commit`).
+5. Modify the file, save.
+6. Observe the difference (`git diff`)
+7. Make another commit.
+8. Observe the history (`git log`)
+
+## GitHub Exercise {.smaller}
+
+
+1. Login to [GitHub](github.com)
+2. Create a repository
+3. Clone the repository
+4. Create a file and commit it.
+5. Push the change to GitHub.
+6. Check on [GitHub](github.com) whether your changes have arrived.
