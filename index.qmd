@@ -1,0 +1,99 @@
+---
+title: "Git for Neurosciences"
+subtitle: "A brief introduction to version control"
+author: "Joscha Schmiedt"
+format: 
+    revealjs:
+        slide-number: true
+        logo: img/UHB_Logo_Web_RGB.png
+        footer: <https://quarto.org>
+        header: Git for Neurosciences
+        header-logo: img/UHB_Logo_Web_RGB.png
+filters:
+    - reveal-header
+---
+
+# Introduction
+
+## Material beyond this presentation
+
+- Git for non-computer scientists: [Happy Git and GitHub for the UseR](https://happygitwithr.com)
+- Learn Git in a playful way: [Oh my Git!](https://ohmygit.org)
+- Bryan J. 2017. Excuse me, do you have a moment to talk about version control? PeerJ Preprints 5:e3159v2 [https://doi.org/10.7287/peerj.preprints.3159v2](https://doi.org/10.7287/peerj.preprints.3159v2)
+
+## Why Git? Why GitHub
+
+:::: {.columns}
+::: {.column width="100%"}
+![](img/GitGitHub.png)
+:::
+
+::: {.column width="50%"}
+- **version control system**
+- manages the evolution of a set of files – called a **repository**.
+:::
+
+::: {.column width="50%"}
+GitHub provides a home for your Git-based projects on the internet.
+:::
+::::
+
+
+
+
+## Slide Title {background-color="black"}
+::: {.fragment}
+Fade in
+:::
+
+::: {.fragment .fade-out}
+Fade out
+:::
+
+::: {.fragment .highlight-red}
+Highlight red
+:::
+
+
+## Overview
+
+1. Install git and create a GitHub account
+2. What is git?
+3. How does git work?
+4. What is GitHub?
+5. Quick example using git and GitHub
+
+## [Install Git](https://happygitwithr.com/install-git)
+
+- Windows: [https://gitforwindows.org](https://gitforwindows.org)
+- Linux (Debian/Ubuntu): `sudo apt-get install git`
+- macOS: `xcode-select --install`
+
+## [Introduce yourself to Git](https://happygitwithr.com/hello-git)
+
+On your computer:
+```bash
+git config --global user.name "Andrew Huxley"
+git config --global user.email "andrew@huxley.science"
+git config --global --list
+```
+
+## Create GitHub account
+
+- Go to [github.com/signup](https://github.com/signup)
+- Free for public repositories
+
+
+
+## What is version control?
+
+- A system that keeps records of your changes
+- Allows for collaborative development
+- Allows you to know who made what changes and when
+- Allows you to revert any changes and go back to a previous state
+
+## Git is a version control system!
+- Distributed version control
+- Users keep entire code and history on their location machines
+- Users can make any changes without internet access
+- (Except pushing and pulling changes from a remote server)
