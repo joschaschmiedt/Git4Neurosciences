@@ -32,9 +32,9 @@ filters:
 
 # Why Git? Why GitHub?
 
-## The *problem*: How to handle multiple versions of your work?
+## The *problem*
 
-File-based?
+How to handle multiple versions of your work? Filename-based?
 
 ::: {.fragment}
 ```{mermaid}
@@ -47,12 +47,20 @@ flowchart LR
 
 :::
 
+::: {.notes}
+Problems: manual bookkeeping error prone, date format?
+:::
+
 ::: {.fragment}
+
+What if someone else works on it?
 ```{mermaid}
+%%| fig-responsive: false
+%%| fig-width: 6.5
+
+
 flowchart LR
-    A[lab_report] --> B[lab_report2]
-    B --> C[lab_report061024]
-    C --> D[lab_report_final]
+    D[lab_report_final]
     E[lab_report_final_ProfDrDrSmith] --> F[lab report FINAL2]
     G[lab_report_final_Mum] --> F[lab report FINAL2]
     D --> F
@@ -83,13 +91,39 @@ The *What/Who/When* is called a **Commit**.
 
 ## Git is a version control system!
 
+A **commit** is a complete snapshot of your work, with a unique identifier, an author and timestamp.
+```{mermaid}
+%%| fig-width: 20
+gitGraph
+    commit
+    commit
+    commit
+    commit
+```
 
+::: {.fragment}
+You can still give meaningful names by using **tags**
+```{mermaid}
+%%| fig-width: 20
+
+gitGraph
+    commit
+    commit tag: "SfN abstract"
+    commit
+    commit
+    commit tag: "JNeurosci Initial Submission"
+    commit
+```
+:::
+
+## Git is a version control system!
+Experiment and discard by working in a **branch**.
 
 ```{mermaid}
 gitGraph
     commit
     commit
-    branch develop
+    branch tryout_coherence
     commit
     commit
     commit
@@ -98,39 +132,23 @@ gitGraph
     commit
 ```
 
+Collaborate by **branching** and **merging**
 ```{mermaid}
 gitGraph
     commit
-    commit id: "Normal" tag: "v1.0.0"
     commit
-    commit id: "Reverse" type: REVERSE tag: "RC_1"
+    branch new_metric_by_Hans
     commit
-    commit id: "Highlight" type: HIGHLIGHT tag: "8.8.4"
+    commit
+    commit
+    checkout main
+    commit
+    commit
+    merge new_metric_by_Hans
+    commit
     commit
 ```
 
-```{mermaid}
-   gitGraph
-       commit
-       commit
-       branch develop
-       commit
-       commit
-       commit
-       checkout main
-       commit
-       commit
-       merge develop
-       commit
-       commit
-```
-
-![](img/filenames_vs_git.png){.r-stretch}
-
-- Distributed version control
-- Users keep entire code and history on their location machines
-- Users can make any changes without internet access
-- (Except pushing and pulling changes from a remote server)
 
 
 ## Why Git? Why GitHub?
@@ -173,16 +191,47 @@ git config --global --list
 ```
 
 
-
-
 # Git going!
 
-## Early GitHub
+## Git Terminology Cheatsheet {.smaller}
 
-Daily workflow:
+::: {.incremental}
 
-0. (Pull from GitHub)
-1. Make local changes and save
-2. Stage changes and commit
-3. Push your local changes to GitHub
-4. Goto 1.
+- **Repository**: Set of files in a folder that are tracked
+- **`git clone`**: Copy a repository to your local machine
+- **`git init`**: Initialize a folder as a git repository (adds a .git folder)
+- **`git pull`**: Get and apply latest changed from remote server
+- **`git add`**: *Stage* a new file or change to an existing file for the next...
+- **`git commit`**: Create a snapshot of the tracked files (who/what/when) (locally)
+- **`git branch`**: Branch off the main branch
+- **`git checkout`**: Go to a specific commit or branch
+- **`git diff`**: Compare commits to each other
+- **`git tag`**: Give a name to a particular commit 
+
+:::
+
+## GitHub Terminology Cheatsheet {.smaller}
+
+::: {.incremental}
+
+- **Repository**: Set of files in a folder that are tracked
+- **Fork**: A personal branch off a repository
+- **Pull Request**: A request to include someones elses changes into your repository
+- **Issue**: Get and apply latest changed from remote server
+
+:::
+
+::: {.fragment .gray}
+
+:::::: {.aside}
+You probably don't or rarely need: `revert`, `fetch`, `merge`, `reset`, `rebase`
+::::::
+:::
+
+## Daily workflow
+
+1. (`git clone` or `git pull`)
+2. Make local changes and save.
+3. Stage changes (`git add`) and commit (`git commit`)
+4. Push your local changes to remote (`git push`)
+5. Goto 1.
