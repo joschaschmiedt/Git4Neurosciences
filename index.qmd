@@ -1,27 +1,139 @@
 ---
-title: "Git for Neurosciences"
+title: "Git and GitHub for Neurosciences"
 subtitle: "A brief introduction to version control"
 author: "Joscha Schmiedt"
 format: 
     revealjs:
-        slide-number: true
-        logo: img/UHB_Logo_Web_RGB.png
-        footer: <https://quarto.org>
+        slide-number: true        
         header: Git for Neurosciences
         header-logo: img/UHB_Logo_Web_RGB.png
+        template-partials:
+        - title-slide.html
+mermaid:
+    theme: neutral
 filters:
     - reveal-header
 ---
 
-# Introduction
+## Overview
 
-## Material beyond this presentation
+1. Why Git? Why GitHub?
+2. Installation & Setup^[once per computer]: Git, GitHub, VS Code
+3. Git going^[every day]!
 
-- Git for non-computer scientists: [Happy Git and GitHub for the UseR](https://happygitwithr.com)
+
+::: {.incremental}
+::: {.aside}
+- [Happy Git and GitHub for the UseR](https://happygitwithr.com)
 - Learn Git in a playful way: [Oh my Git!](https://ohmygit.org)
-- Bryan J. 2017. Excuse me, do you have a moment to talk about version control? PeerJ Preprints 5:e3159v2 [https://doi.org/10.7287/peerj.preprints.3159v2](https://doi.org/10.7287/peerj.preprints.3159v2)
+- Bryan J. 2017. [Excuse me, do you have a moment to talk about version control?](https://doi.org/10.7287/peerj.preprints.3159v2)
+:::
+:::
 
-## Why Git? Why GitHub
+# Why Git? Why GitHub?
+
+## The *problem*: How to handle multiple versions of your work?
+
+File-based?
+
+::: {.fragment}
+```{mermaid}
+flowchart LR
+    A[lab_report] --> B[lab_report2]
+    B --> C[lab_report061024]
+    C --> D[lab_report_final]
+    D --> E[lab report FINAL2]
+```
+
+:::
+
+::: {.fragment}
+```{mermaid}
+flowchart LR
+    A[lab_report] --> B[lab_report2]
+    B --> C[lab_report061024]
+    C --> D[lab_report_final]
+    E[lab_report_final_ProfDrDrSmith] --> F[lab report FINAL2]
+    G[lab_report_final_Mum] --> F[lab report FINAL2]
+    D --> F
+    D --> E
+    D --> G
+    
+```
+:::
+
+::: {.fragment}
+Maybe not...
+:::
+
+
+## The *solution*: version control
+
+::: {.incremental}
+- Keep track of all changes to files in a project^[like Word but better]:
+  - **What** was changed?
+  - **Who** changed it?
+  - **When** was it changed?
+- Revert, annotate compare and merge changes
+:::
+
+::: {.fragment}
+The *What/Who/When* is called a **Commit**.
+:::
+
+## Git is a version control system!
+
+
+
+```{mermaid}
+gitGraph
+    commit
+    commit
+    branch develop
+    commit
+    commit
+    commit
+    checkout main
+    commit
+    commit
+```
+
+```{mermaid}
+gitGraph
+    commit
+    commit id: "Normal" tag: "v1.0.0"
+    commit
+    commit id: "Reverse" type: REVERSE tag: "RC_1"
+    commit
+    commit id: "Highlight" type: HIGHLIGHT tag: "8.8.4"
+    commit
+```
+
+```{mermaid}
+   gitGraph
+       commit
+       commit
+       branch develop
+       commit
+       commit
+       commit
+       checkout main
+       commit
+       commit
+       merge develop
+       commit
+       commit
+```
+
+![](img/filenames_vs_git.png){.r-stretch}
+
+- Distributed version control
+- Users keep entire code and history on their location machines
+- Users can make any changes without internet access
+- (Except pushing and pulling changes from a remote server)
+
+
+## Why Git? Why GitHub?
 
 :::: {.columns}
 ::: {.column width="100%"}
@@ -38,36 +150,18 @@ GitHub provides a home for your Git-based projects on the internet.
 :::
 ::::
 
-
-
-
-## Slide Title {background-color="black"}
-::: {.fragment}
-Fade in
-:::
-
-::: {.fragment .fade-out}
-Fade out
-:::
-
-::: {.fragment .highlight-red}
-Highlight red
-:::
-
-
-## Overview
-
-1. Install git and create a GitHub account
-2. What is git?
-3. How does git work?
-4. What is GitHub?
-5. Quick example using git and GitHub
+# Installation & Setup
 
 ## [Install Git](https://happygitwithr.com/install-git)
 
 - Windows: [https://gitforwindows.org](https://gitforwindows.org)
 - Linux (Debian/Ubuntu): `sudo apt-get install git`
 - macOS: `xcode-select --install`
+
+## Create GitHub account
+
+- Go to [github.com/signup](https://github.com/signup)
+- Free private and public repositories
 
 ## [Introduce yourself to Git](https://happygitwithr.com/hello-git)
 
@@ -78,22 +172,17 @@ git config --global user.email "andrew@huxley.science"
 git config --global --list
 ```
 
-## Create GitHub account
-
-- Go to [github.com/signup](https://github.com/signup)
-- Free for public repositories
 
 
 
-## What is version control?
+# Git going!
 
-- A system that keeps records of your changes
-- Allows for collaborative development
-- Allows you to know who made what changes and when
-- Allows you to revert any changes and go back to a previous state
+## Early GitHub
 
-## Git is a version control system!
-- Distributed version control
-- Users keep entire code and history on their location machines
-- Users can make any changes without internet access
-- (Except pushing and pulling changes from a remote server)
+Daily workflow:
+
+0. (Pull from GitHub)
+1. Make local changes and save
+2. Stage changes and commit
+3. Push your local changes to GitHub
+4. Goto 1.
