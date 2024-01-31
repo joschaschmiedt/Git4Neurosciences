@@ -170,6 +170,19 @@ gitGraph
 - Go to [github.com/signup](https://github.com/signup)
 - Free private and public repositories
 
+## Install VS Code {.smaller}
+
+- [https://code.visualstudio.com/download](https://code.visualstudio.com/download)
+- Install [several useful extensions](https://davrot.github.io/pytutorial/workflow/vscode_install/)
+  - Python
+  - Pylance
+  - Jupyter
+  - Jupyter Slide Show
+  - Flake8
+  - Black Formatter
+  - Mypy
+  - Inden Rainbow
+
 ## [Introduce yourself to Git](https://happygitwithr.com/hello-git)
 
 On your computer:
@@ -178,6 +191,12 @@ git config --global user.name "Andrew Huxley"
 git config --global user.email "andrew@huxley.science"
 git config --global --list
 ```
+
+## Optional: Install Python
+
+1. Directly from [https://www.python.org](https://www.python.org) (requires manual installation of extra packages)
+2. Using the [Anaconda distribution](https://www.anaconda.com)
+3. Using the [neuro-conda distribution](https://github.com/neuro-conda/neuro-conda) (many neuroscience packages included, see [here for an introduction](https://pantaray.github.io/neuro-conda-bremen-2023/#/title-slide))
 
 
 # Git going!
