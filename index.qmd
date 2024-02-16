@@ -34,9 +34,10 @@ filters:
 
 ## The *problem*
 
-How to handle multiple versions of your work? Filename-based?
+How to handle multiple versions of your work? 
 
 ::: {.fragment}
+Filename-based?
 ```{mermaid}
 flowchart LR
     A[lab_report] --> B[lab_report2]
